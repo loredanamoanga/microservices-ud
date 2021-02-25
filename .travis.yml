@@ -6,17 +6,17 @@ services:
 env:
   - DOCKER_COMPOSE_VERSION=1.4.2
 before_install:
-  # Docker Compose Install
   - docker -v && docker-compose -v
   - sudo rm /usr/local/bin/docker-compose
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
-# Pre-testing installs
 install:
   - docker-compose -f docker-compose-build.yml build --parallel
   - docker-compose up
 after_success:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push "$DOCKER_USERNAME"/udagram-user:latest
-  - docker push "$DOCKER_USERNAME"/udagram-feed:latest
+  - echo "\$DOCKER_PASSWORD" | docker login -u "\$DOCKER_USERNAME" --password-stdin
+  - docker push "\$DOCKER_USERNAME"/udagram-api-user:latest
+  - docker push "\$DOCKER_USERNAME"/udagram-api-feed:latest
+  - docker push "\$DOCKER_USERNAME"/udagram-frontend:latest
+  - docker push "\$DOCKER_USERNAME"/reverseproxy:latest
