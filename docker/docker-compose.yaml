@@ -19,7 +19,7 @@ services:
       AWS_PROFILE: $AWS_PROFILE
       AWS_BUCKET: $AWS_BUCKET
       JWT_SECRET: $JWT_SECRET
-      URL: "http://aac2db781b06ea47ac9c2b9bf02642d71-361669274.us-east-1.elb.amazonaws.com:8080/api/v0/"
+      URL: "http://ac2db781b06ea47ac9c2b9bf02642d71-361669274.us-east-1.elb.amazonaws.com:8080"
   backend-feed:
     image: loredanamoanga/udagram-api-feed
     volumes:
@@ -33,7 +33,7 @@ services:
       AWS_PROFILE: $AWS_PROFILE
       AWS_BUCKET: $AWS_BUCKET
       JWT_SECRET: $JWT_SECRET
-      URL: "http://ac2db781b06ea47ac9c2b9bf02642d71-361669274.us-east-1.elb.amazonaws.com:8080/api/v0/"
+      URL: "http://ac2db781b06ea47ac9c2b9bf02642d71-361669274.us-east-1.elb.amazonaws.com:8080"
   frontend:
     image: loredanamoanga/udagram-frontend
     ports:
