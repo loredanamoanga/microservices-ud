@@ -1,4 +1,4 @@
-import {Table, Column, Model, CreatedAt, UpdatedAt} from 'sequelize-typescript';
+import { Table, Column, Model, CreatedAt, UpdatedAt } from 'sequelize-typescript';
 
 
 @Table
