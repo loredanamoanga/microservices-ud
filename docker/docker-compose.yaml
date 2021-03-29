@@ -1,13 +1,5 @@
 version: "3"
 services:
-  reverseproxy:
-    image: loredanamoanga/reverseproxy
-    ports:
-      - 8080:8080
-    restart: always
-    depends_on:
-      - backend-user
-      - backend-feed
   backend-user:
     image: loredanamoanga/udagram-api-user
     volumes:
@@ -36,6 +28,14 @@ services:
       AWS_BUCKET: $AWS_BUCKET
       JWT_SECRET: $JWT_SECRET
       URL: "http://localhost:8100"
+  reverseproxy:
+    image: loredanamoanga/reverseproxy
+    ports:
+      - 8080:8080
+    restart: always
+    depends_on:
+      - backend-user
+      - backend-feed
   frontend:
     image: loredanamoanga/udagram-frontend
     ports:
